@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#keys
+MAPS_KEY = os.environ['MAPS_KEY']
 
 # Application definition
 
@@ -89,7 +91,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'tpgdb',
+            'NAME': 'affine',
             'USER': 'shivam',
             'PASSWORD': '',
             'HOST': 'localhost',
