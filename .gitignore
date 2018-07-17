@@ -5,6 +5,7 @@ __pycache__/
 keys
 *keys*
 *.csv
+*DS_Store
 
 # C extensions
 *.so
