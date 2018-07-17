@@ -10,3 +10,4 @@ function searchbox(num) {
     SearchControl.style.opacity = "0";
     }
   }
+
