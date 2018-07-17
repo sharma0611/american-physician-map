@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+import googlemaps
 gmaps = googlemaps.Client(key=settings.GMAPS_KEY)
 
 # Model helper functions

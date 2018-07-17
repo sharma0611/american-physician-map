@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 #keys
-MAPS_KEY = os.environ['MAPS_KEY']
+GMAPS_KEY = os.environ['GMAPS_KEY']
 
 # Application definition
 
