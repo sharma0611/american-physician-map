@@ -24,7 +24,8 @@ $.get("doctorsearch", {'query': query})
 	    marker.setPosition(latlng);
 	    map.panTo(latlng);
 	    map.setZoom(13);
-	    var contentString = '<div class="info-window"> <h2 class="h2-title">' + data.title + '</h2> </div>';
+	    var contentString = '<div class="info-window"> <h2>' + data.title + '</h2>';
+	    contentString = contentString + '<h3>' +  data.body + ' </h3> </div>';
 	    var infowindow = new google.maps.InfoWindow();
 	    infowindow.setContent(contentString);
             infowindow.open(map, marker);
@@ -48,7 +49,8 @@ if (event.keyCode == 13) {
 	    marker.setPosition(latlng);
 	    map.panTo(latlng);
 	    map.setZoom(13);
-	    var contentString = '<div class="info-window"> <h2>' + data.title + '</h2> </div>';
+	    var contentString = '<div class="info-window"> <h2>' + data.title + '</h2>';
+	    contentString = contentString + '<h3>' +  data.body + ' </h3> </div>';
 	    var infowindow = new google.maps.InfoWindow();
 	    infowindow.setContent(contentString);
             infowindow.open(map, marker);

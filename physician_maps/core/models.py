@@ -36,7 +36,13 @@ class Doctor(models.Model):
             return lat, lng
 
     def get_title(self):
-        title = str(self.name) + "<br>Address: " + str(self.address)
-        if self.specialty:
-            title = title + "<br>Specialty: " + str(self.specialty)
+        title = str(self.name) 
         return title
+        
+
+    def get_body(self):
+        body = "Address: " + str(self.address)
+        if self.specialty:
+            body = body + "<br>Specialty: " + str(self.specialty)
+        return body
+

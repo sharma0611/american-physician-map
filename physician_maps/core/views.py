@@ -13,7 +13,8 @@ def doctorsearch(request):
     chosen_doc = doctors[0]
     lat, lng = chosen_doc.get_coordinates()
     title = chosen_doc.get_title()
-    data = {'latitude': lat, 'longitude': lng, 'title' : title}
+    body = chosen_doc.get_body()
+    data = {'latitude': lat, 'longitude': lng, 'title' : title, 'body': body}
     return JsonResponse(data)
 
 import json

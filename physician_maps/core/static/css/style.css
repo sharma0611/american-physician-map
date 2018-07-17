@@ -25,7 +25,11 @@ body{
 }
 
 h2 {
-  font-family:'Cookie';
+  font-family:'Open Sans';
+  color:#62bb49;
+}
+h3 {
+  font-family:'Open Sans';
   color:#62bb49;
 }
 
