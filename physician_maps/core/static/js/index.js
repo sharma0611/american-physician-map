@@ -16,6 +16,7 @@ $("#search").submit(function(event) {
 event.preventDefault();
 console.log( "Handler for .submit() called." );
 var query = $(this).val();
+
 $.get("doctorsearch", {'query': query})
   .done(function(data){
 	    var latlng = new google.maps.LatLng(data.latitude, data.longitude);
@@ -23,15 +24,17 @@ $.get("doctorsearch", {'query': query})
 	    marker.setPosition(latlng);
 	    map.panTo(latlng);
 	    map.setZoom(13);
-	    var contentString = '<div class="info-window"> <h2>' + data.title + '</h3> </div>';
+	    var contentString = '<div class="info-window"> <h2 class="h2-title">' + data.title + '</h2> </div>';
 	    var infowindow = new google.maps.InfoWindow();
 	    infowindow.setContent(contentString);
             infowindow.open(map, marker);
 	  activeInfoWindow = infowindow;
 	$('#search').autocomplete('close');
   });
+$('#search').autocomplete('close');
 });
 
+$(document).ready(function() {
 $("#search").keydown(function(event) {
 // do the extra stuff her
 if (event.keyCode == 13) {
@@ -45,20 +48,21 @@ if (event.keyCode == 13) {
 	    marker.setPosition(latlng);
 	    map.panTo(latlng);
 	    map.setZoom(13);
-	    var contentString = '<div class="info-window"> <h2>' + data.title + '</h3> </div>';
+	    var contentString = '<div class="info-window"> <h2>' + data.title + '</h2> </div>';
 	    var infowindow = new google.maps.InfoWindow();
 	    infowindow.setContent(contentString);
             infowindow.open(map, marker);
 		  activeInfoWindow = infowindow;
-	    $('#search').autocomplete('close');
 	  });
+	    $('#search').autocomplete('close');
 }
 });
-
-$(function() {
+});
+$(document).ready(function() {
   $("#search").autocomplete({
     autofocus: true,
     source: "get_doctors",
     minLength: 2,
   });
 });
+

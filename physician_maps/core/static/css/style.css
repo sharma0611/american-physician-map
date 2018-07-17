@@ -22,8 +22,13 @@ body{
 .title {
   font-family:'Cookie';
   font-size:32px;
-  cursor: pointer;
 }
+
+h2 {
+  font-family:'Cookie';
+  color:#62bb49;
+}
+
 .search-control{
   font-family:'Open Sans';
   position: absolute;
