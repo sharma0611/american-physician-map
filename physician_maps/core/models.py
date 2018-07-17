@@ -35,3 +35,8 @@ class Doctor(models.Model):
             self.save()
             return lat, lng
 
+    def get_title(self):
+        title = str(self.name) + "<br>Address: " + str(self.address)
+        if self.specialty:
+            title = title + "<br>Specialty: " + str(self.specialty)
+        return title

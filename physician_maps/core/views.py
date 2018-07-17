@@ -12,7 +12,8 @@ def doctorsearch(request):
     doctors = Doctor.objects.filter(name__istartswith= query)
     chosen_doc = doctors[0]
     lat, lng = chosen_doc.get_coordinates()
-    data = {'latitude': lat, 'longitude': lng}
+    title = chosen_doc.get_title()
+    data = {'latitude': lat, 'longitude': lng, 'title' : title}
     return JsonResponse(data)
 
 import json
