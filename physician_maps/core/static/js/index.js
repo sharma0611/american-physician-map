@@ -20,8 +20,8 @@ $.get("doctorsearch", {'query': query})
   .done(function(data){
     var latlng = new google.maps.LatLng(data.latitude, data.longitude);
     marker.setPosition(latlng);
-  })
-})
+  });
+});
 
 $("#search").keydown(function(event) {
 // do the extra stuff her
@@ -34,6 +34,13 @@ if (event.keyCode == 13) {
 	    var latlng = new google.maps.LatLng(data.latitude, data.longitude);
 	    marker.setPosition(latlng);
 	    map.panTo(latlng);
-	  })
+	  });
 }
-})
+});
+
+$(function() {
+  $("#search").autocomplete({
+    source: "get_doctors",
+    minLength: 2,
+  });
+});

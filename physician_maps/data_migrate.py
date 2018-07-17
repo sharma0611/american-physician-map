@@ -8,6 +8,7 @@ import numpy as np
 from core.models import Doctor
 
 df = pd.read_csv("../data_analysis/processed_data.csv")
+df = df.fillna("")
 
 for index, row in df.iterrows():
     first_name = row['Physician_First_Name']
@@ -22,7 +23,7 @@ for index, row in df.iterrows():
     name = str(first_name) + " " + str(middle_name) + " " + str(last_name)
     name = name.replace("  ", " ")
     
-    address = row["Recipient_Primary_Business_Street_Address_Line1"] + ", " + row["Recipient_City"] + ", " + row["Recipient_State"] + ", " + row["Recipient_Country"]
+    address = str(row["Recipient_Primary_Business_Street_Address_Line1"]) + ", " + str(row["Recipient_City"]) + ", " + str(row["Recipient_State"]) + ", " + str(row["Recipient_Country"])
     zipcode = row["Recipient_Zip_Code"]
     specialty = row['Physician_Specialty']
 
