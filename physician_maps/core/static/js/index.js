@@ -13,7 +13,7 @@ function searchbox(num) {
 
 $("#search").submit(function(event) {
 // do the extra stuff her
-event.preventDefault;
+event.preventDefault();
 console.log( "Handler for .submit() called." );
 var query = $(this).serialize();
 $.get("doctorsearch", {'query': query})

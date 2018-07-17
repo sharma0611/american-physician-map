@@ -25,8 +25,7 @@ for index, row in df.iterrows():
     address = row["Recipient_Primary_Business_Street_Address_Line1"] + ", " + row["Recipient_City"] + ", " + row["Recipient_State"] + ", " + row["Recipient_Country"]
     zipcode = row["Recipient_Zip_Code"]
     specialty = row['Physician_Specialty']
-    suffix = row['Physician_Name_Suffix']
 
     #Create doctor object with fields from above
-    doctor = Doctor(name=name, address=address, zipcode=zipcode, specialty=specialty, suffix=suffix)
+    doctor = Doctor(name=name, address=address, zipcode=zipcode, specialty=specialty)
     doctor.save()
