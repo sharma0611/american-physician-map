@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
  <title>American Physician Map</title>
   
-  
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
   
       <link rel="stylesheet" href="static/css/style.css">
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -49,13 +49,13 @@ google.maps.event.addDomListener(window, 'load', showGoogleMaps);
   <nav class="navigation">
   <div class="container">
    <span class="title">
-   <i class="fa fa-home"></i> American Physician Map 
+   <i class="fa fa-user-md"></i> American Physician Map 
   </span> 
 </div>
 </nav>
 	  <div id="googlemaps"></div>
 <div class="container">
-    <div class="search-box" id="SBox">
+	<form method='post' class="search-box" id="SBox"> {% csrf_token %}
        <input id="search" placeholder="Search..." type="text">
       <div class="also search-link" onclick="searchbox(0)" id="searchclick"></div>
   </div>

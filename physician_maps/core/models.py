@@ -6,7 +6,7 @@ gmaps = googlemaps.Client(key=settings.GMAPS_KEY)
 # Model helper functions
 
 def get_latitude_longitude(address, zipcode):
-    geocode_result = gmaps.geocode(address, components={'postal_code':zipcode, 'country:':"US"})
+    geocode_result = gmaps.geocode(address)
     lat = geocode_result[0]['geometry']['location']['lat']
     lng = geocode_result[0]['geometry']['location']['lng']
     return lat, lng
@@ -27,7 +27,7 @@ class Doctor(models.Model):
             return (lat, lng)
         else:
             try:
-                lat, lng = get_latitude_longitude(self.address)
+                lat, lng = get_latitude_longitude(self.address, self.zipcode)
             except:
                 lat, lng = (None, None)
             self.latitude = lat

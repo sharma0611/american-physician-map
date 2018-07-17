@@ -1,5 +1,5 @@
 import os, django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "physician_maps.settings")
 django.setup()
 
 #imports
@@ -9,7 +9,7 @@ from core.models import Doctor
 
 df = pd.read_csv("../data_analysis/processed_data.csv")
 
-for row in df.iterrows():
+for index, row in df.iterrows():
     first_name = row['Physician_First_Name']
     if not first_name:
         first_name = ""
