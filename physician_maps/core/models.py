@@ -15,9 +15,9 @@ def get_latitude_longitude(address, zipcode):
 class Doctor(models.Model):
     name = models.CharField("Name", max_length=150)
     address = models.CharField("Address", max_length=200) #, unique=True)
-    speciality = models.CharField("Speciality", max_length=50)
-    prefix = models.CharField("Prefix", max_length=10)
-    zipcode = models.CharField("Zipcode", max_length=20)
+    specialty = models.CharField("Speciality", max_length=50, default="")
+    prefix = models.CharField("Prefix", max_length=10, default="")
+    zipcode = models.CharField("Zipcode", max_length=20, default="")
     latitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True, default=None)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True,null=True, default=None)
 
@@ -35,5 +35,4 @@ class Doctor(models.Model):
             self.longitude = lng
             self.save()
             return lat, lng
-
 

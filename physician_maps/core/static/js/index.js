@@ -33,6 +33,7 @@ if (event.keyCode == 13) {
 	  .done(function(data){
 	    var latlng = new google.maps.LatLng(data.latitude, data.longitude);
 	    marker.setPosition(latlng);
+	    map.panTo(latlng);
 	  })
 }
 })
