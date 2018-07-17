@@ -10,11 +10,15 @@ def doctorsearch(request):
     query = request.GET.get('query')
     #this view is designed to serve as an api to grab longitude and latitude from a doctor model id
     doctors = Doctor.objects.filter(name__istartswith= query)
-    chosen_doc = doctors[0]
-    lat, lng = chosen_doc.get_coordinates()
-    title = chosen_doc.get_title()
-    body = chosen_doc.get_body()
-    data = {'latitude': lat, 'longitude': lng, 'title' : title, 'body': body}
+    if len(doctors) > 0:
+        chosen_doc = doctors[0]
+        lat, lng = chosen_doc.get_coordinates()
+        title = chosen_doc.get_title()
+        body = chosen_doc.get_body()
+        data = {'latitude': lat, 'longitude': lng, 'title' : title, 'body': body}
+    else:
+        data = {'latitude': False, 'longitude': False, 'title' : False, 'body': False}
+        
     return JsonResponse(data)
 
 import json
