@@ -60,7 +60,7 @@ google.maps.event.addDomListener(window, 'load', showGoogleMaps);
 <div class="container">
 	<form method='post' class="search-box" id="SBox"> {% csrf_token %}
        <input id="search" name="search" placeholder="Search..." type="text">
-      <div class="also search-link" onclick="searchbox(0)" id="searchclick"></div>
+      <button class="also search-link" id="searchclick"></button>
   </div>
 </div>
   

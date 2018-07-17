@@ -1,21 +1,11 @@
 var SearchControl = document.getElementById('SBox');
 var ColorChange = document.getElementById('color');
 
-function searchbox(num) {
-  if(num == "1"){
-    SearchControl.style.visibility = "visible";
-    SearchControl.style.opacity = "1";
-  } else if(num == "0") {
-    SearchControl.style.visibility = "hidden";
-    SearchControl.style.opacity = "0";
-    }
-  }
-
-$("#search").submit(function(event) {
+$("#searchclick").click(function(event) {
 // do the extra stuff her
 event.preventDefault();
 console.log( "Handler for .submit() called." );
-var query = $(this).val();
+var query = $(document.getElementById('search')).val();
 
 $.get("doctorsearch", {'query': query})
   .done(function(data){
