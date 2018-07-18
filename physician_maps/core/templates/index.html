@@ -9,67 +9,39 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
 </script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
   
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
       <link rel="stylesheet" href="static/css/style.css">
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<script type="text/javascript">
-
-// The latitude and longitude of your business / place
-var position = [40.850033, -97.6500523];
-var activeInfoWindow;    
-
-function showGoogleMaps() {
-
-    var latLng = new google.maps.LatLng(position[0], position[1]);
-
-    var mapOptions = {
-        zoom: 5, // initialize zoom level - the max value is 21
-        streetViewControl: false, // hide the yellow Street View pegman
-        scaleControl: true, // allow users to zoom the Google Map
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: latLng
-    };
-
-    map = new google.maps.Map(document.getElementById('googlemaps'),
-        mapOptions);
-
-    // Show the default red marker at the location
-    marker = new google.maps.Marker({
-        position: (null, null),
-        map: map,
-        draggable: false,
-        animation: google.maps.Animation.DROP
-    });
-}
-
-google.maps.event.addDomListener(window, 'load', showGoogleMaps);
-</script>
-  
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKixZX6LL-oughrsfrkMaHE3pnqYr2t4M&callback=initMap">
+    </script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script  src="static/js/index.js"></script>
 </head>
 
 <body>
 
-  <nav class="navigation">
-  <div class="container">
-   <span class="title">
-   <i class="fa fa-user-md"></i> American Physician Map 
-  </span> 
-</div>
-</nav>
-	  <div id="googlemaps"></div>
-<div class="container">
-	<form method='post' class="search-box" id="SBox"> {% csrf_token %}
-       <input id="search" name="search" placeholder="Search..." type="text">
-      <button class="also search-link" id="searchclick"></button>
-  </div>
-</div>
-  
-  
+	<div class="container-fluid"> <!-- Top bar -->
+		<div class="row top-bar text-center">
+			<span> <i class="fa fa-user-md"></i> American Physician Map </span>
+		</div>
+	</div>
 
-    <script  src="static/js/index.js"></script>
-
-
-
+	<div class="container-fluid"> <!-- Map -->
+		<div class="row">
+		  <div id="googlemaps"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 hidden-sm"></div>
+			<div class="col-md-6 center-block col-sm-12">
+				<form method='post' class="search-form"> {% csrf_token %}
+					<input class="search-input" id="search" name="search" placeholder="Search..." type="text">
+					<button class="search-button" id="searchbutton"></button> 
+				</form>
+			</div>
+			<div class="col-md-3 hidden-sm"></div>
+		</div>
+	</div>
 
 </body>
 
