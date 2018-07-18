@@ -91,7 +91,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'mapsdb',
+            'NAME': 'affine',
             'USER': 'shivam',
             'PASSWORD': '',
             'HOST': 'localhost',
