@@ -5,17 +5,22 @@ function submitquery(event) {
 	var query = $(document.getElementById('search')).val();
 	$.get("doctorsearch", {'query': query})
 		.done(function(data){
-			var latlng = new google.maps.LatLng(data.latitude, data.longitude);
-			if (activeInfoWindow) { activeInfoWindow.close();}
-			marker.setPosition(latlng);
-			map.panTo(latlng);
-			map.setZoom(13);
-			var contentString = '<div class="info-window"> <h2>' + data.title + '</h2>';
-			contentString = contentString + '<h4>' +  data.body + ' </h4> </div>';
-			var infowindow = new google.maps.InfoWindow();
-			infowindow.setContent(contentString);
-			infowindow.open(map, marker);
-			activeInfoWindow = infowindow;
+			if (data.title === 'fail') {
+				document.getElementById("modalbutton").click(); // Simulates button click
+			}
+			else {
+				var latlng = new google.maps.LatLng(data.latitude, data.longitude);
+				if (activeInfoWindow) { activeInfoWindow.close();}
+				marker.setPosition(latlng);
+				map.panTo(latlng);
+				map.setZoom(13);
+				var contentString = '<div class="info-window"> <h2>' + data.title + '</h2>';
+				contentString = contentString + '<h4>' +  data.body + ' </h4> </div>';
+				var infowindow = new google.maps.InfoWindow();
+				infowindow.setContent(contentString);
+				infowindow.open(map, marker);
+				activeInfoWindow = infowindow;
+			}
 		});
 	$('#search').autocomplete('disable');
 	$('#search').autocomplete('close');
@@ -80,6 +85,4 @@ function initMap() {
         animation: google.maps.Animation.DROP
     });
 }
-
-google.maps.event.addDomListener(window, 'load', showGoogleMaps);
 

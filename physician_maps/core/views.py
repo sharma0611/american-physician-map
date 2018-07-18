@@ -17,8 +17,7 @@ def doctorsearch(request):
         body = chosen_doc.get_body()
         data = {'latitude': lat, 'longitude': lng, 'title' : title, 'body': body}
     else:
-        data = {'latitude': False, 'longitude': False, 'title' : False, 'body': False}
-        
+        data = {'latitude': 'fail', 'longitude': 'fail', 'title' : 'fail' , 'body': 'fail'}
     return JsonResponse(data)
 
 import json
