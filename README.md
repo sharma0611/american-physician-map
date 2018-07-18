@@ -5,6 +5,8 @@ Simple web app to serve search bar and map UI to locate physicians across the US
 
 The following instructions will allow you to get a version of this app up and running locally.
 
+Live at: http://physician-maps-dev.us-east-1.elasticbeanstalk.com/ 
+
 **1) Get this repo, install requirements, and create local db**
 
 ~~~bash
@@ -34,7 +36,7 @@ You will now have a file processed\_data.csv in the data\_analysis folder.
 
 **4) Ensure you have a valid Google Maps API Key and source it in an environment variable GMAPS\_KEY**
 
-**5) Change user string to your username in Database settings on line 95 in physician\_maps/physician\_maps/settings.py**
+**5) Change user string to your username in Database settings on line 95 in physician\_maps/physician\_maps/settings.py & set DEBUG=False for local use**
 
 **6) Get Django up & running, import your data, run a local server**
 
@@ -47,3 +49,4 @@ $ python data_migrate.py
 $ python manage.py runserver
 ~~~
 
+You can also use .ebextensions folder included to launch this repo on an elastic beanstalk instance. Create the environment, attach an RDS instance in your eb console, ship the data in processed\_data.csv to your EC2 instance via S3 or scp, and use the given data migration script. This should give you a working EBS instance.
