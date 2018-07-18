@@ -34,6 +34,7 @@ if (event.keyCode == 13) {
 	var query = $(this).val();
 	$.get("doctorsearch", {'query': query})
 	  .done(function(data){
+	    setTimeout(function() {$('#search').autocomplete('close');}, 1000);
 	    var latlng = new google.maps.LatLng(data.latitude, data.longitude);
 	    if (activeInfoWindow) { activeInfoWindow.close();}
 	    marker.setPosition(latlng);
